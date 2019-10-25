@@ -1,0 +1,35 @@
+server:
+  port: ${CONTRACT_SERVICE_PORT}
+
+spring:
+  application:
+    name: contract-service
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${CONTRACT_DATABASE_URL}
+    username: ${CONTRACT_DATABASE_USER}
+    password: ${CONTRACT_DATABASE_PASSWORD}
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+        show_sql: true
+        format_sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+
+auth:
+  domain: ${AUTH_DOMAIN}
