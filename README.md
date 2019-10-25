@@ -1,4 +1,4 @@
-#Contract-Service
+# Contract-Service
 
 Contract service is the micro-service which create and exercise DA contracts. Orchestration is currently also done in this service, which in larger scale work, shall be moved out.
 Steps to run the app:
