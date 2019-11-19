@@ -73,13 +73,14 @@ public class LedgerService {
                                     iouTransferRepo.save(iouTransfer.get());
                                 }
                             }
-                            logger.info("Created Event: " + createdEvent);
+                            logger.info("Created Event: {}", createdEvent);
 
                         } else if (event instanceof ArchivedEvent) {
-                            ArchivedEvent archivedEvent = (ArchivedEvent) event;
-                            logger.info("Archived Event: " + archivedEvent);
+                            logger.info("Archived Event: {}", event);
 
 
+                        } else if (event instanceof ExercisedEvent) {
+                            logger.info("Exercised Event: {}", event);
                         }
                     }
                 });
